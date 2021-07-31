@@ -6,6 +6,9 @@ require "digest"
 module MasterCrypt
   class << self
     def encrypt(plaintext, secrets)
+      raise "Secrets must not be blank" unless secrets.select(&:empty?).empty?
+      raise "At least 1 secret is required" if !secrets.is_a?(Array) || secrets.empty?
+
       random_key = RbNaCl::Random.random_bytes(RbNaCl::SecretBox.key_bytes)
       # encrypt data with random_key
       box = RbNaCl::SimpleBox.from_secret_key(random_key)
@@ -35,7 +38,7 @@ module MasterCrypt
       box = RbNaCl::SimpleBox.from_secret_key(key)
 
       ciphertext = Base64.strict_decode64(encrypted_data64)
-      box.decrypt(ciphertext)
+      box.decrypt(ciphertext).force_encoding(Encoding::UTF_8)
     end
 
     private
