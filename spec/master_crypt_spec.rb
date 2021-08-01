@@ -23,7 +23,7 @@ describe MasterCrypt do
     end
 
     context "with blank secrets" do
-      let(:secrets) { ["", ""] }
+      let(:secrets) { ["", "secret", ""] }
 
       it "raises an error" do
         expect { encrypted_data }.to raise_error("Secrets must not be blank")
