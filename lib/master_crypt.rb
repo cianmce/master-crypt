@@ -10,7 +10,7 @@ class MasterCrypt
   end
 
   def master_key_encrypt(plaintext, secret_keys = [])
-    self.class.encrypt(plaintext, [@master_key] + secret_keys)
+    self.class.encrypt(plaintext, [@master_key] + Array(secret_keys))
   end
 
   def master_key_decrypt(encrypted_data)
