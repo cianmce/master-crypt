@@ -3,11 +3,24 @@ require "rbnacl"
 require "base64"
 require "digest"
 
-module MasterCrypt
+class MasterCrypt
+  def initialize(master_key)
+    raise "Master key must not be blank" if master_key.nil? || master_key.empty?
+    @master_key = master_key
+  end
+
+  def master_key_encrypt(plaintext, secret_keys = [])
+    self.class.encrypt(plaintext, [@master_key] + secret_keys)
+  end
+
+  def master_key_decrypt(encrypted_data)
+    self.class.decrypt(encrypted_data, @master_key)
+  end
+
   class << self
-    def encrypt(plaintext, secrets)
-      raise "Secrets must not be blank" unless secrets.select(&:empty?).empty?
-      raise "At least 1 secret is required" if !secrets.is_a?(Array) || secrets.empty?
+    def encrypt(plaintext, secret_keys)
+      raise "At least 1 secret key is required" if !secret_keys.is_a?(Array) || secret_keys.empty?
+      raise "Secret keys must not be blank" unless secret_keys.select(&:empty?).empty?
 
       random_key = RbNaCl::Random.random_bytes(RbNaCl::SecretBox.key_bytes)
       # encrypt data with random_key
@@ -17,7 +30,7 @@ module MasterCrypt
       encrypted_data64 = Base64.strict_encode64(encrypted_data)
 
       # encrypt random_kets with each secret
-      encrypted_random_keys64 = secrets.collect do |secret|
+      encrypted_random_keys64 = secret_keys.collect do |secret|
         key = generate_key_from_secret(secret)
         box = RbNaCl::SimpleBox.from_secret_key(key)
 
