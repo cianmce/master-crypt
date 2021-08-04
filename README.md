@@ -5,7 +5,7 @@
 ### Encrypting data with a master key
 ```ruby
 master_key = "Very secure & random master k3y"
-other_secret_key = "Another very secure & random master k3y"
+other_secret_key = "Another very secure & random other k3y"
 plaintext = "Secret data..."
 master_crypt = MasterCrypt.new(master_key)
 
