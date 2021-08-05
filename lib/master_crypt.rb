@@ -54,6 +54,8 @@ class MasterCrypt
     def encrypt(plaintext, secret_keys)
       raise ArgumentError, "At least 1 secret key is required" if !secret_keys.is_a?(Array) || secret_keys.empty?
       raise ArgumentError, "Secret keys must not be blank" unless secret_keys.select(&:empty?).empty?
+      # there's no point in using the same key multiple times
+      secret_keys.uniq!
 
       random_key = RbNaCl::Random.random_bytes(RbNaCl::SecretBox.key_bytes)
       # encrypt data with random_key

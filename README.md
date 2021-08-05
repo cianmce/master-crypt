@@ -1,4 +1,13 @@
-# master-crypt
+# Master Crypt
+
+[![CircleCI](https://circleci.com/gh/cianmce/master-crypt.svg?style=shield)](https://circleci.com/gh/cianmce/master-crypt)
+
+Master Key is a gem for encrypting data with a [master keying](https://en.wikipedia.org/wiki/Master_keying) approach
+
+This allows you to have a master key to decrypt the full set of data while also creating keys that can only decrypt a subset of data. These keys can then be safely distributed to relevant actors who will be only able to access their permitted data
+
+You can encrypt data with as many keys as needed, all of which will be able to decrypt the data while only causing a small encrypted data size increase of 129 bytes for each extra key
+
 
 ## Installatio
 ### Installing RbNaCl
