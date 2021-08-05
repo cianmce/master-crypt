@@ -10,6 +10,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install libsodium
+          command: apt install libsodium-dev
+      - run:
           name: Install bundle
           command: bundle install
       - run:
