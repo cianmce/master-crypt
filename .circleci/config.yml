@@ -20,10 +20,6 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - master-crypt-{{ checksum ".ruby-version" }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - master-crypt-{{ checksum ".ruby-version" }}
       - configure_bundler
       - run:
           name: Which bundler?
