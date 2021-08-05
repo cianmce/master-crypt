@@ -23,6 +23,9 @@ jobs:
       - configure_bundler
       - run:
           name: Install bundle
+          command: gem install bundler -v "2.2.15"
+      - run:
+          name: Install bundle
           command: bundle install
       - run:
           name: Which bundler?
