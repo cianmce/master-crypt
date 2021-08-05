@@ -38,7 +38,7 @@ describe MasterCrypt do
       expect {
         described_class.decrypt(encrypted_data, invalid_secret_key)
       }.to raise_error(
-        "No valid key for '#{invalid_secret_key}'"
+        MasterCrypt::CryptoError, "Invalid secret key '#{invalid_secret_key}'"
       )
     end
   end
@@ -48,7 +48,7 @@ describe MasterCrypt do
       let(:secret_keys) { [] }
 
       it "raises an error" do
-        expect { encrypted_data }.to raise_error("At least 1 secret key is required")
+        expect { encrypted_data }.to raise_error(ArgumentError, "At least 1 secret key is required")
       end
     end
 
@@ -56,7 +56,7 @@ describe MasterCrypt do
       let(:secret_keys) { ["", "secret_key", ""] }
 
       it "raises an error" do
-        expect { encrypted_data }.to raise_error("Secret keys must not be blank")
+        expect { encrypted_data }.to raise_error(ArgumentError, "Secret keys must not be blank")
       end
     end
   end
