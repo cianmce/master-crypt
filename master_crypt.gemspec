@@ -29,5 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry-doc", "~> 1.1"
   spec.add_development_dependency "guard", "~> 2.18"
   spec.add_development_dependency "guard-rspec", "~> 4.7.3"
-  spec.add_dependency "rbnacl", "7.1.1"
+  spec.add_dependency "rbnacl", "~> 7.0"
 end
