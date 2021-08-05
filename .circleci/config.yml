@@ -10,9 +10,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: gem bundle
-          command: gem install bundler -v "2.2.15"
-      - run:
           name: Install bundle
           command: bundle install
       - run:
