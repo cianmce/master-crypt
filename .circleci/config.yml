@@ -9,7 +9,8 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
+      - ruby/bundle-install
+        bundler-version: "2.2.15"
       - run:
           name: Which bundler?
           command: bundle -v
-      - ruby/bundle-install
