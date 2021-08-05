@@ -26,4 +26,4 @@ jobs:
           command: bundle install
       - run:
           name: Which bundler?
-          command: bundle -v
+          command: ls -la
