@@ -1,9 +1,35 @@
 # master-crypt
 
-## Usage
+## Installatio
+### Installing RbNaCl
+https://github.com/RubyCrypto/rbnacl#installation
 
+#### OS X users
+```sh
+brew install libsodium
+```
+
+#### FreeBSD users
+```sh
+pkg install libsodium
+```
+
+#### APT users
+
+```sh
+apt install libsodium-dev
+```
+
+### Installing MasterCrypt
+```sh
+gem install master_crypt
+```
+
+## Usage
 ### Encrypting data with a master key
 ```ruby
+require "master_crypt"
+
 master_key = "Very secure & random master k3y"
 other_secret_key = "Another very secure & random other k3y"
 plaintext = "Secret data..."
@@ -39,8 +65,6 @@ MasterCrypt.decrypt(encrypted_data, secret_keys[0])
 ```sh
 bundle install
 ```
-
-## Specs
 
 ### Run all specs + standardrb
 

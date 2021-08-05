@@ -1,0 +1,20 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2 
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.3-stretch-node
+    executor: ruby/default
+    steps:
+      - checkout
+      - run:
+          name: Install libsodium
+          command: sudo apt install libsodium-dev
+      - run:
+          name: Install bundle
+          command: bundle install
+      - run:
+          name: Run tests
+          command: bundle exec rake
