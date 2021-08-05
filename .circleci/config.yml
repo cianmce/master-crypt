@@ -22,8 +22,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - release-queue-{{ checksum ".ruby-version" }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - release-queue-{{ checksum ".ruby-version" }}
+            - master-crypt-{{ checksum ".ruby-version" }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - master-crypt-{{ checksum ".ruby-version" }}
       - configure_bundler
       - run:
           name: Which bundler?
