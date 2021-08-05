@@ -22,5 +22,8 @@ jobs:
       - checkout
       - configure_bundler
       - run:
+          name: Install bundle
+          command: bundle install
+      - run:
           name: Which bundler?
           command: bundle -v
