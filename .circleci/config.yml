@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - ruby/bundle-install
-        bundler-version: "2.2.15"
+          bundler-version: "2.2.15"
       - run:
           name: Which bundler?
           command: bundle -v
