@@ -13,5 +13,5 @@ jobs:
           name: Install bundle
           command: bundle install
       - run:
-          name: Which bundler?
-          command: ls -la; bundle -v
+          name: Run tests
+          command: bundle exec rake
