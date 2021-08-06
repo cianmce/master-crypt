@@ -1,6 +1,7 @@
 # Master Crypt
 
 [![CircleCI](https://circleci.com/gh/cianmce/master-crypt.svg?style=shield)](https://circleci.com/gh/cianmce/master-crypt)
+[![Gem Version](https://badge.fury.io/rb/master-crypt.png)](https://badge.fury.io/rb/master-crypt)
 
 Master Key is a gem for encrypting data with a [master keying](https://en.wikipedia.org/wiki/Master_keying) approach
 
