@@ -3,7 +3,7 @@
 [![CircleCI](https://circleci.com/gh/cianmce/master-crypt.svg?style=shield)](https://circleci.com/gh/cianmce/master-crypt)
 [![Gem Version](https://badge.fury.io/rb/master-crypt.png)](https://badge.fury.io/rb/master-crypt)
 
-Master Key is a gem for encrypting data with a [master keying](https://en.wikipedia.org/wiki/Master_keying) approach
+Master Key is a gem for encrypting data with a [master keying](https://en.wikipedia.org/wiki/Master_keying) approach meaning you can encrypt data with multiple keys and then decrypt it any of them
 
 This allows you to have a master key to decrypt the full set of data while also creating keys that can only decrypt a subset of data. These keys can then be safely distributed to relevant actors who will be only able to access their permitted data
 
