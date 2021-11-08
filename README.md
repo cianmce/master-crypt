@@ -10,7 +10,7 @@ This allows you to have a master key to decrypt the full set of data while also 
 You can encrypt data with as many keys as needed, all of which will be able to decrypt the data while only causing a small encrypted data size increase of 129 bytes for each extra key
 
 
-## Installatio
+## Installation
 ### Installing RbNaCl
 https://github.com/RubyCrypto/rbnacl#installation
 
