@@ -32,7 +32,7 @@ apt install libsodium-dev
 
 ### Installing MasterCrypt
 ```sh
-gem install master_crypt
+gem install master-crypt
 ```
 
 ## Usage
